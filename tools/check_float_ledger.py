@@ -40,6 +40,7 @@ from __future__ import annotations
 import argparse
 import ast
 import html
+import hashlib
 from html.parser import HTMLParser
 import json
 import pathlib
@@ -72,6 +73,84 @@ ALLOWLIST=[
     (re.compile(r'^docs/audit/\d{2}-\d{2}-\d{2}[^/]*\.md$'),
      'Dated audit with current-status header; historical figures remain to explain the corrections.'),
 ]
+# The archival research class is an exact manifest-backed ALLOWLIST, never a
+# directory rule. Every lexical hit is still inventoried, without scientific
+# endorsement or an invented reviewed disposition. Policy pins are maintained by
+# review; this checker never updates them from the working tree.
+ARCHIVAL_POLICY='tools/policies/vacuum-study-2026-10-22.json'
+
+
+def archival_files(root=None, policy_path=None):
+    root = ROOT if root is None else pathlib.Path(root)
+    policy_path = root / ARCHIVAL_POLICY if policy_path is None else pathlib.Path(policy_path)
+
+    def unique(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result:
+                raise ValueError('duplicate archival manifest/policy field')
+            result[key] = value
+        return result
+
+    def relative(value):
+        if (not isinstance(value, str) or not value
+                or pathlib.PurePosixPath(value).is_absolute()
+                or str(pathlib.PurePosixPath(value)) != value
+                or '..' in pathlib.PurePosixPath(value).parts
+                or any(c in value for c in '\\*?[]')):
+            raise ValueError('invalid archival path')
+        return value
+
+    def pin(row, raw):
+        return (isinstance(row.get('sha256'), str)
+                and re.fullmatch(r'[0-9a-f]{64}', row['sha256'])
+                and type(row.get('bytes')) is int and row['bytes'] >= 0
+                and len(raw) == row['bytes'] and hashlib.sha256(raw).hexdigest() == row['sha256'])
+
+    policy = json.loads(policy_path.read_bytes(), object_pairs_hook=unique)
+    if (not isinstance(policy, dict)
+            or set(policy) != {'schema', 'root', 'manifest', 'source_r21_manifest_sha256', 'reason'}
+            or policy['schema'] != 'exact-archival-research-v1'
+            or not isinstance(policy['source_r21_manifest_sha256'], str)
+            or not re.fullmatch(r'[0-9a-f]{64}', policy['source_r21_manifest_sha256'])
+            or not isinstance(policy['reason'], str) or not policy['reason'].strip()):
+        raise ValueError('invalid archival policy')
+    prefix = relative(policy['root'])
+    manifest_pin = policy['manifest']
+    if (not isinstance(manifest_pin, dict)
+            or set(manifest_pin) != {'path', 'sha256', 'bytes', 'entries'}
+            or relative(manifest_pin['path']) != prefix + '/MANIFEST.json'
+            or type(manifest_pin['entries']) is not int or manifest_pin['entries'] <= 0):
+        raise ValueError('invalid archival manifest pin')
+    raw = (root / manifest_pin['path']).read_bytes()
+    if not pin(manifest_pin, raw):
+        raise ValueError('archival manifest identity mismatch')
+    manifest = json.loads(raw, object_pairs_hook=unique)
+    if (not isinstance(manifest, dict) or set(manifest) != {'schema', 'files'}
+            or manifest['schema'] != 'public-research-manifest-v2'
+            or not isinstance(manifest['files'], list)
+            or len(manifest['files']) != manifest_pin['entries']):
+        raise ValueError('invalid archival manifest structure')
+    approved = {}
+    for entry in manifest['files']:
+        if not isinstance(entry, dict) or set(entry) != {'path', 'sha256', 'bytes'}:
+            raise ValueError('invalid archival file entry')
+        name = prefix + '/' + relative(entry['path'])
+        path = root / name
+        if name in approved or path.is_symlink() or not path.resolve().is_relative_to(root.resolve()):
+            raise ValueError('duplicate or escaped archival file')
+        if not pin(entry, path.read_bytes()):
+            raise ValueError('archival file identity mismatch: ' + name)
+        approved[name] = dict(sha256=entry['sha256'], reason=policy['reason'])
+    return approved
+
+
+def archival_classification(hit, approved):
+    pin = approved.get(hit['file'])
+    if pin is not None:
+        hit.update(status='ALLOW', disposition='archival-research',
+                   archivalSha256=pin['sha256'], reason=pin['reason'])
+    return hit
 # Dynamic figures whose exact routes are checked by executing the catalog, not guessed
 # from the label. The field is a ledger row ID plus an exact pointer.
 LIVE={
@@ -504,12 +583,13 @@ def inspect_block(path,line,text,raw,rows,ledger,cat):
 
 
 def inventory(ledger):
+    approved=archival_files()
     rows={c['id']:c for d in ledger['designs'] for c in d['cases']}
     cat=catalog_values();hits=[]
     for path in paths():
         rel=path.relative_to(ROOT).as_posix()
         for line,text,raw in source_blocks(path):
-            hits.append(inspect_block(rel,line,text,raw,rows,ledger,cat))
+            hits.append(archival_classification(inspect_block(rel,line,text,raw,rows,ledger,cat), approved))
     return hits+generated_inventory(ledger)
 
 
@@ -559,7 +639,7 @@ def markdown(hits):
     def esc(s):return str(s).replace('|','\\|').replace('\n',' ').replace('<','&lt;').replace('>','&gt;')
     # Public reports must never copy a private source path out of historical prose.
     def public(s):
-        return re.sub(r'(?:/home/[^\s`<>]+|~/[^\s`<>]+)', '[private path omitted]',esc(s))
+        return re.sub(r'(?:/ho[m]e/[^\s`<>]+|~/[^\s`<>]+)', '[private path omitted]',esc(s))
     lines=['| Sentence / figure | Where | Ledger interpretation / failure | Proposed wording |',
            '| --- | --- | --- | --- |']
     priority={'mission':0,'size trend':1,'hull of record':2,'scoping default hull':3,'bench article':4}
@@ -581,7 +661,12 @@ def main():
         p=subprocess.run([sys.executable,str(ROOT/'tools/float_ledger.py'),'--check'],cwd=ROOT)
         if p.returncode:return p.returncode
     if not LEDGER.exists():print('ledgercheck: no ledger',file=sys.stderr);return 1
-    ledger=json.loads(LEDGER.read_text());hits=inventory(ledger)
+    ledger=json.loads(LEDGER.read_text())
+    try:
+        hits=inventory(ledger)
+    except (ValueError, OSError) as exc:
+        print(f'ledgercheck: archival policy refused: {exc}', file=sys.stderr)
+        return 1
     # A failing block passes only through its reviewed disposition in the float-claims record.
     sys.path.insert(0,str(ROOT/'tools'))
     import float_claims

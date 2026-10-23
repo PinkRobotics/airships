@@ -1,0 +1,47 @@
+{
+  "schema": "exact-layer-metadata-exceptions-v1",
+  "base": "b4b0dbb533b1e20f2eca3688b85d368ac5ff6333",
+  "files": [
+    {
+      "path": "tests/capture/fixtures/evacuations.layer.json",
+      "sha256": "b66215d414f1f965f527484f7f95bed81ed0733c3f1f9e1394527e6af7fd8d54",
+      "bytes": 1437,
+      "allowed_metadata": [
+        {
+          "json_pointer": "/displayField",
+          "occurrences": 1,
+          "expected_metadata_sha256": "eee32774837f485a8c8277c643ad5d40bd2ed43e0fcb3c2e707bcb91b4f817f7"
+        }
+      ]
+    },
+    {
+      "path": "tests/capture/fixtures/perimeters.by-status.json",
+      "sha256": "22cb765217c1142c08f7a595ba0760d72a9ba0c143ebe32f72e351aa793da8a7",
+      "bytes": 764,
+      "allowed_metadata": [
+        {
+          "json_pointer": "/geometryProperties/shapeAreaFieldName",
+          "occurrences": 1,
+          "expected_metadata_sha256": "c4364e226cb450b997851e9c4fda2c95f781c23d4b907bfda6759166af356c0a"
+        },
+        {
+          "json_pointer": "/geometryProperties/shapeLengthFieldName",
+          "occurrences": 1,
+          "expected_metadata_sha256": "d67a187ed8716e32dc0e8484304ee4a969811bc9161d3dc1114ea037b6635c24"
+        }
+      ]
+    },
+    {
+      "path": "tests/evac/fixtures/hand-capture/evac.layer.json",
+      "sha256": "2e3c464d4f4b7b016ffe69b329f02033fc43100005f6093696bd6c6a4134ecc1",
+      "bytes": 2148,
+      "allowed_metadata": [
+        {
+          "json_pointer": "/displayField",
+          "occurrences": 1,
+          "expected_metadata_sha256": "eee32774837f485a8c8277c643ad5d40bd2ed43e0fcb3c2e707bcb91b4f817f7"
+        }
+      ]
+    }
+  ]
+}

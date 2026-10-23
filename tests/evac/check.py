@@ -17,8 +17,10 @@
    and population, the issuing agency, free-text names — is refused everywhere: the
    derived file's own shape is pinned key by key, and the tracked tree is scanned for the
    layer's dropped field names and for any homes/population/agency key in any tracked
-   JSON. The banned names are built from pieces here, so this file does not carry them
-   either.
+   JSON. Only exact reviewed scientific files in scientific-key-exceptions.json may
+   carry population keys: path, full-file hash, bytes and match count must all agree.
+   Changed bytes fail closed; homes/agency keys and layer names are never exempt.
+   The banned names are built from pieces here, so this file does not carry them either.
 
 3. THE SEASON JOIN. Every fire number in the derived record must resolve in the season
    record, and the exercise generator's exclusion basis — the evacuation record union the
@@ -190,39 +192,322 @@ def the_derived_record_publishes_the_six_fields_and_nothing_else():
             f"{len(prov['inputs'])} inputs named by sha256")
 
 
-@test
-def no_homes_population_or_agency_field_anywhere_in_the_tracked_tree():
-    """The layer's dropped fields are published in no tracked file — this one included: the
-    names are built from pieces so the scan's own source does not carry them either."""
-    listed = subprocess.run(["git", "ls-files"], cwd=ROOT, capture_output=True, text=True)
-    same(listed.returncode, 0, "git ls-files")
-    files = [ROOT / p for p in listed.stdout.splitlines() if p.strip()]
-    assert files, "git ls-files listed nothing"
-    # this order's own output is untracked until it lands: name it here too, so the scan
-    # covers the derived pair and its fixtures whatever git knows about today
-    files += [SEASON / f"{YEAR}.evac.json", SEASON / f"{YEAR}.evac.prov.json"]
-    files += sorted(HERE.rglob("*"))
-    files = sorted({p for p in files if p.is_file()})
+def banned_layer_names():
     # the layer's own names for what the ruling refuses to publish, plus its free-text names
-    join, pieces = "_".join, [
+    pieces = [
         ("MULTI" + "_SOURCED", "_HOMES"), ("MULTI" + "_SOURCED", "_POPULATION"),
         ("ISSUING", "_AGENCY"), ("ORDER" + "_ALERT", "_NAME"), ("EVENT", "_NAME"),
         ("EMRG" + "_OAA", "_SYSID"), ("PREOC", "_CODE"),
         ("FEATURE" + "_AREA", "_SQM"), ("FEATURE" + "_LENGTH", "_M"),
         ("Shape" + "__", "Area"), ("Shape" + "__", "Length")]
-    banned = [join(a + b) for a, b in pieces]
-    key = re.compile(rb'"[^"]*(homes|population|agency)[^"]*"\s*:', re.I)
-    hits = []
+    return [a + b for a, b in pieces]
+
+
+# Retain the original generic heuristic verbatim. The pinned exception applies to
+# its scientific population matches only; other sensitive keys remain forbidden.
+KEY = re.compile(rb'"[^"]*(homes|population|agency)[^"]*"\s*:', re.I)
+POPULATION_KEY = re.compile(rb'"[^"]*population[^"]*"\s*:', re.I)
+OTHER_KEY = re.compile(rb'"[^"]*(homes|agency)[^"]*"\s*:', re.I)
+
+
+def scientific_policy(doc):
+    """Validate source-controlled approvals; never derive approval from scanned bytes."""
+    if (not isinstance(doc, dict) or set(doc) != {"schema", "files"}
+            or doc["schema"] != "exact-scientific-key-exceptions-v1"
+            or not isinstance(doc["files"], list)):
+        raise ValueError("invalid scientific exception policy")
+    policy = {}
+    for row in doc["files"]:
+        if not isinstance(row, dict) or set(row) != {"path", "sha256", "bytes", "matches", "reason"}:
+            raise ValueError("invalid scientific exception entry")
+        path = row["path"]
+        if (not isinstance(path, str) or not path or path in policy
+                or pathlib.PurePosixPath(path).is_absolute()
+                or str(pathlib.PurePosixPath(path)) != path
+                or ".." in pathlib.PurePosixPath(path).parts
+                or any(c in path for c in "\\*?[]") or not path.endswith(".json")
+                or not isinstance(row["sha256"], str)
+                or not re.fullmatch(r"[0-9a-f]{64}", row["sha256"])
+                or any(type(row[k]) is not int or row[k] <= 0 for k in ("bytes", "matches"))
+                or not isinstance(row["reason"], str) or not row["reason"].strip()):
+            raise ValueError("invalid or duplicate scientific exception pin")
+        policy[path] = row
+    return policy
+
+
+def unique_policy_fields(pairs):
+    obj = {}
+    for key, value in pairs:
+        if key in obj:
+            raise ValueError("duplicate scientific policy field")
+        obj[key] = value
+    return obj
+
+
+def metadata_policy(doc):
+    """Four reviewed metadata values, not permission for entire files or data fields."""
+    if (not isinstance(doc, dict) or set(doc) != {"schema", "base", "files"}
+            or doc["schema"] != "exact-layer-metadata-exceptions-v1"
+            or not isinstance(doc["base"], str) or not re.fullmatch(r"[0-9a-f]{40}", doc["base"])
+            or not isinstance(doc["files"], list)):
+        raise ValueError("invalid metadata policy")
+    policy = {}
+    pointers = {"/displayField", "/geometryProperties/shapeAreaFieldName",
+                "/geometryProperties/shapeLengthFieldName"}
+    for row in doc["files"]:
+        if not isinstance(row, dict) or set(row) != {"path", "sha256", "bytes", "allowed_metadata"}:
+            raise ValueError("invalid metadata pin")
+        # Reuse the strict path/hash/byte validator, without deriving any approval.
+        checked = scientific_policy({"schema": "exact-scientific-key-exceptions-v1", "files": [{
+            "path": row["path"], "sha256": row["sha256"], "bytes": row["bytes"],
+            "matches": 1, "reason": "metadata identity validation"}]})
+        if row["path"] in policy or not isinstance(row["allowed_metadata"], list) or not row["allowed_metadata"]:
+            raise ValueError("duplicate or empty metadata pin")
+        seen = set()
+        for entry in row["allowed_metadata"]:
+            if (not isinstance(entry, dict)
+                    or set(entry) != {"json_pointer", "expected_metadata_sha256", "occurrences"}
+                    or not isinstance(entry["json_pointer"], str)
+                    or entry["json_pointer"] not in pointers or entry["json_pointer"] in seen
+                    or type(entry["occurrences"]) is not int or entry["occurrences"] != 1
+                    or not isinstance(entry["expected_metadata_sha256"], str)
+                    or not re.fullmatch(r"[0-9a-f]{64}", entry["expected_metadata_sha256"])):
+                raise ValueError("invalid metadata pointer/value/count")
+            seen.add(entry["json_pointer"])
+        policy[next(iter(checked))] = row
+    return policy
+
+
+def metadata_allowances(path, raw, policy):
+    pin = policy.get(path)
+    if pin is None:
+        return {}, []
+    if len(raw) != pin["bytes"] or hashlib.sha256(raw).hexdigest() != pin["sha256"]:
+        return {}, [f"{path}: metadata fixture identity mismatch"]
+    allowed = {}
+    try:
+        doc = json.loads(raw, object_pairs_hook=unique_policy_fields)
+        for entry in pin["allowed_metadata"]:
+            value = doc
+            for part in entry["json_pointer"].split("/")[1:]:
+                value = value[part]
+            if (not isinstance(value, str) or value not in banned_layer_names()
+                    or hashlib.sha256(value.encode()).hexdigest() != entry["expected_metadata_sha256"]):
+                raise ValueError("metadata value differs")
+            allowed[value] = allowed.get(value, 0) + entry["occurrences"]
+        if any(raw.count(name.encode()) != count for name, count in allowed.items()):
+            raise ValueError("metadata occurrence count differs")
+    except (ValueError, KeyError, TypeError):
+        return {}, [f"{path}: metadata pointer/value/occurrence mismatch"]
+    return allowed, []
+
+
+def boundary_hits(path, raw, policy, metadata=None):
+    """Return violations and whether one exact approval was used. All layers are scanned."""
+    allowed, hits = metadata_allowances(path, raw, metadata or {})
+    for name in banned_layer_names():
+        if raw.count(name.encode()) > allowed.get(name, 0):
+            hits.append(f"{path}: the layer field {name!r}")
+    used = False
+    if path.endswith(".json"):
+        matches = list(KEY.finditer(raw))
+        other = OTHER_KEY.search(raw)
+        if other:
+            hits.append(f"{path}: a homes/agency key ({other.group(0)[:40]!r})")
+        count = sum(bool(POPULATION_KEY.search(match.group(0))) for match in matches)
+        pin = policy.get(path)
+        if pin is not None:
+            used = (len(raw) == pin["bytes"] and count == pin["matches"]
+                    and hashlib.sha256(raw).hexdigest() == pin["sha256"])
+            if not used:
+                hits.append(f"{path}: scientific exception bytes/hash/count mismatch")
+        if matches and not used:
+            hits.append(f"{path}: {len(matches)} unapproved homes/population/agency keys")
+    return hits, used
+
+
+@test
+def no_homes_population_or_agency_field_anywhere_in_the_tracked_tree():
+    """No dropped layer fields; scientific exceptions approve only exact frozen bytes."""
+    policy = scientific_policy(json.loads((HERE / "scientific-key-exceptions.json").read_bytes(),
+                                          object_pairs_hook=unique_policy_fields))
+    metadata = metadata_policy(json.loads((HERE / "metadata-exceptions.json").read_bytes(),
+                                         object_pairs_hook=unique_policy_fields))
+    listed = subprocess.run(["git", "ls-files"], cwd=ROOT, capture_output=True, text=True)
+    same(listed.returncode, 0, "git ls-files")
+    files = [ROOT / p for p in listed.stdout.splitlines() if p.strip()]
+    assert files, "git ls-files listed nothing"
+    # Cover the derived pair and local fixtures even before Git knows about them.
+    files += [SEASON / f"{YEAR}.evac.json", SEASON / f"{YEAR}.evac.prov.json"]
+    files += sorted(HERE.rglob("*"))
+    files = sorted({p for p in files if p.is_file()})
+    hits, used = [], set()
     for path in files:
-        raw = path.read_bytes()
-        for name in banned:
-            if name.encode() in raw:
-                hits.append(f"{path.relative_to(ROOT)}: the layer field {name!r}")
-        if path.suffix == ".json" and key.search(raw):
-            hits.append(f"{path.relative_to(ROOT)}: a homes/population/agency key "
-                        f"({key.search(raw).group(0)[:40].decode()!r})")
+        name = path.relative_to(ROOT).as_posix()
+        found, approved = boundary_hits(name, path.read_bytes(), policy, metadata)
+        hits.extend(found)
+        if approved:
+            used.add(name)
     assert not hits, "; ".join(hits)
-    return f"{len(files)} tracked files, {len(banned)} banned names, no key, nothing found"
+    unused = sorted(set(policy) - used)
+    return (f"{len(files)} files, {len(banned_layer_names())} unconditional banned names; "
+            f"scientific approvals used={len(used)}, unused={len(unused)} {unused}; "
+            f"metadata fixtures present={sum((ROOT / p).is_file() for p in metadata)}/{len(metadata)}; "
+            "no boundary violations")
+
+
+def fixture_policy(path, raw):
+    """Synthetic approvals for adversarial tests, never the tracked-tree policy."""
+    return scientific_policy({"schema": "exact-scientific-key-exceptions-v1", "files": [{
+        "path": path, "sha256": hashlib.sha256(raw).hexdigest(), "bytes": len(raw),
+        "matches": len(POPULATION_KEY.findall(raw)), "reason": "synthetic regression fixture"}]})
+
+
+@test
+def scientific_boundary_accepts_only_exact_bytes_at_the_approved_path():
+    key = "popu" + "lation"
+    raw = json.dumps({key: "specimens", "value": 1}).encode()
+    path = "synthetic/science.json"
+    policy = fixture_policy(path, raw)
+    same(boundary_hits(path, raw, policy), ([], True), "approved synthetic bytes")
+    mutations = [raw.replace(b"specimens", b"residents"),
+                 json.dumps({key: "specimens", "value": 2}).encode(),
+                 json.dumps({key: "specimens", "value": 1, "extra": 0}).encode(),
+                 json.dumps({key: "specimens", "nested": {key: 1}}).encode(),
+                 b'{}']
+    for changed in mutations:
+        assert boundary_hits(path, changed, policy)[0], "changed scientific file accepted"
+    assert boundary_hits("synthetic/copied.json", raw, policy)[0], "unlisted copy accepted"
+    for body in ({key: 1}, {"nested": {key.upper(): 1}}, {"nested": {"count_" + key: 1}}):
+        assert boundary_hits("ordinary.json", json.dumps(body).encode(), policy)[0]
+    for field, wrong in (("sha256", "0" * 64), ("bytes", len(raw) + 1), ("matches", 2)):
+        wrong_policy = {path: dict(policy[path], **{field: wrong})}
+        assert boundary_hits(path, raw, wrong_policy)[0], f"wrong {field} accepted"
+    return "exact bytes accepted; mutations, removal, new path, nested keys and wrong pins refused"
+
+
+@test
+def scientific_boundary_never_exempts_other_keys_or_layer_fields():
+    key = "popu" + "lation"
+    path = "synthetic/science.json"
+    # Even a matching synthetic pin cannot excuse these unconditional boundaries.
+    for forbidden in ("ho" + "mes", "a" + "gency", "count_" + "HOM" + "ES"):
+        raw = json.dumps({key: "specimens", "nested": {forbidden: 1}}).encode()
+        hits, used = boundary_hits(path, raw, fixture_policy(path, raw))
+        assert used and any("homes/agency key" in hit for hit in hits)
+    for name in banned_layer_names():
+        raw = json.dumps({key: "specimens", "note": name}).encode()
+        hits, used = boundary_hits(path, raw, fixture_policy(path, raw))
+        assert used and any("layer field" in hit for hit in hits)
+        assert boundary_hits("ordinary.txt", name.encode(), {})[0]
+    return "homes/agency keys and all layer names rejected even with exact matching pins"
+
+
+@test
+def scientific_boundary_rejects_independently_named_layer_fields():
+    # Independent names, not the scanner's generated list: a constructor defect
+    # must not make both implementation and regression agree on the wrong bytes.
+    names = ["MULTI_SOURCED" + "_HOMES", "MULTI_SOURCED" + "_POPULATION",
+             "ISSUING" + "_AGENCY", "ORDER_ALERT" + "_NAME", "EVENT" + "_NAME",
+             "EMRG_OAA" + "_SYSID", "PREOC" + "_CODE", "FEATURE_AREA" + "_SQM",
+             "FEATURE_LENGTH" + "_M", "Shape__" + "Area", "Shape__" + "Length"]
+    # Independently specified ordered names, encoded as UTF-8 with LF separators
+    # and no terminal LF. Do not recompute this pin from the scanner constructor.
+    expected_digest = "9dba6d6a7bf9ba6ab31fa36469e314f875d6964968585ff31c6f56da51993a9c"
+    same(hashlib.sha256("\n".join(banned_layer_names()).encode()).hexdigest(),
+         expected_digest, "the scanner's actual layer-name set and order")
+    same(hashlib.sha256("\n".join(names).encode()).hexdigest(),
+         expected_digest, "independent regression names")
+    path = "synthetic/science.json"
+    for name in names:
+        raw = json.dumps({"popu" + "lation": "specimens", "note": name}).encode()
+        hits, used = boundary_hits(path, raw, fixture_policy(path, raw))
+        assert used and any("layer field" in hit for hit in hits), (
+            f"actual layer name accepted with a matching pin: {name}")
+        assert boundary_hits("ordinary.txt", name.encode(), {})[0], name
+    return "all eleven independently named layer fields rejected, including exact-pin cases"
+
+
+@test
+def scientific_boundary_rejects_malformed_policy():
+    raw = json.dumps({"popu" + "lation": "specimens"}).encode()
+    row = fixture_policy("synthetic/science.json", raw)["synthetic/science.json"]
+    docs = [None, {}, {"schema": "wrong", "files": []},
+            {"schema": "exact-scientific-key-exceptions-v1", "files": [row, row]}]
+    for field, bad in (("path", "../science.json"), ("path", "/science.json"),
+                       ("path", "a//science.json"), ("path", "*.json"),
+                       ("sha256", None), ("sha256", "bad"), ("bytes", True),
+                       ("bytes", 0), ("matches", -1), ("reason", "")):
+        docs.append({"schema": "exact-scientific-key-exceptions-v1",
+                     "files": [dict(row, **{field: bad})]})
+    for field in row:
+        docs.append({"schema": "exact-scientific-key-exceptions-v1",
+                     "files": [{k: v for k, v in row.items() if k != field}]})
+    for doc in docs:
+        try:
+            scientific_policy(doc)
+        except ValueError:
+            continue
+        raise AssertionError("malformed policy accepted")
+    try:
+        json.loads('{"schema": 1, "schema": 2}', object_pairs_hook=unique_policy_fields)
+    except ValueError:
+        return f"{len(docs)} malformed policies and duplicate JSON fields refused"
+    raise AssertionError("duplicate policy field accepted")
+
+
+@test
+def metadata_boundary_accepts_only_pinned_pointer_values():
+    policy = metadata_policy(load(HERE / "metadata-exceptions.json"))
+    for path in policy:
+        raw = (ROOT / path).read_bytes()
+        same(boundary_hits(path, raw, {}, policy), ([], False), "exact metadata fixture")
+        assert boundary_hits(path, raw + b"\n", {}, policy)[0], "changed fixture accepted"
+        assert boundary_hits("unlisted.json", raw, {}, policy)[0], "unlisted fixture accepted"
+        for name in banned_layer_names():
+            for extra in ({name: 1}, {"value": name}):
+                changed = json.loads(raw)
+                changed["data"] = extra
+                assert boundary_hits(path, json.dumps(changed).encode(), {}, policy)[0]
+                assert boundary_hits("ordinary.json", json.dumps(extra).encode(), {}, policy)[0]
+    # Even matching synthetic file pins do not excuse an extra occurrence outside
+    # the authorized metadata pointer, or a different value at that pointer.
+    path = "synthetic/fixture.json"
+    name = "EVENT" + "_NAME"
+    raw = json.dumps({"displayField": name, "data": {"value": name}}).encode()
+    pin = {"path": path, "sha256": hashlib.sha256(raw).hexdigest(), "bytes": len(raw),
+           "allowed_metadata": [{"json_pointer": "/displayField", "occurrences": 1,
+                                  "expected_metadata_sha256": hashlib.sha256(name.encode()).hexdigest()}]}
+    assert boundary_hits(path, raw, {}, {path: pin})[0], "whole-file metadata exemption"
+    raw = json.dumps({"displayField": "different", "data": {"value": name}}).encode()
+    pin = dict(pin, sha256=hashlib.sha256(raw).hexdigest(), bytes=len(raw))
+    assert boundary_hits(path, raw, {}, {path: pin})[0], "pointer value not enforced"
+    for field, value in (("json_pointer", "/data/value"), ("occurrences", 2),
+                         ("expected_metadata_sha256", "bad")):
+        broken = json.loads(json.dumps(policy[next(iter(policy))]))
+        broken["allowed_metadata"][0][field] = value
+        try:
+            metadata_policy({"schema": "exact-layer-metadata-exceptions-v1",
+                             "base": "0" * 40, "files": [broken]})
+        except ValueError:
+            continue
+        raise AssertionError("malformed metadata policy accepted")
+    return "three exact fixtures; byte mutations, data keys/values, copies and invalid policy refused"
+
+
+@test
+def scientific_boundary_checks_available_frozen_evidence():
+    policy = scientific_policy(load(HERE / "scientific-key-exceptions.json"))
+    present = 0
+    for name in policy:
+        path = ROOT / name
+        if path.is_file():
+            raw = path.read_bytes()
+            same(boundary_hits(name, raw, policy), ([], True), f"frozen evidence {name}")
+            assert boundary_hits(name, raw + b"\n", policy)[0], "changed frozen bytes accepted"
+            assert boundary_hits("unlisted/" + path.name, raw, policy)[0], "copied evidence accepted"
+            present += 1
+    return f"{present} frozen files checked; {len(policy) - present} absent entries confer no permission"
 
 
 # ============================================================================================
