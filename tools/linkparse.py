@@ -89,7 +89,11 @@ def parse_links(content, suffix, *, repository=False):
         definitions.setdefault(reference_id(m[1]), destination(m[2], 0))
     body = re.sub(r'^ {0,3}\[[^]\n]+\]:.*$', '', body, flags=re.M)
     links = []
-    pattern = r'(?<!!)(!?)\[((?:\\.|[^\[\]]|\[[^\[\]]*\])+)\](?:\[([^]\n]*)\])?'
+    # An escape must not also match the ordinary-character branch: otherwise an
+    # unmatched label containing many LaTeX backslashes has exponentially many
+    # ways to partition the same input before the closing bracket fails.
+    # Include line breaks in the escape branch to retain multiline labels.
+    pattern = r'(?<!!)(!?)\[((?:\\[\s\S]|[^\\\[\]]|\[[^\[\]]*\])+)\](?:\[([^]\n]*)\])?'
     # Overlapping matches retain the image source inside a linked image.
     for match in re.finditer('(?=(' + pattern + '))', body):
         if match.start() and body[match.start() - 1] == ']' and not match[2]:

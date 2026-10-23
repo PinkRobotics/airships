@@ -74,6 +74,31 @@ class LinkContracts(unittest.TestCase):
         errors, _ = self.run_check('[![plot](plot.svg)](paper.md)')
         self.assertEqual(len(errors), 2)
 
+    def test_escaped_label_characters_keep_links_images_and_references(self):
+        source = (r'[escaped \] label](paper.md)' '\n'
+                  r'![image \] label](plot.svg)' '\n'
+                  r'[slash \\ label][guide]' '\n'
+                  '[guide]: guide.md\n')
+        self.assertEqual(parse_links(source, '.md', repository=True),
+                         ['paper.md', 'plot.svg', 'guide.md'])
+
+    def test_backslash_line_break_keeps_multiline_labels(self):
+        self.assertEqual(parse_links('[line\\\nbreak](line.md)', '.md', repository=True),
+                         ['line.md'])
+
+    def test_unmatched_latex_brackets_do_not_backtrack_exponentially(self):
+        # Escaped closing brackets in a display expression leave no Markdown
+        # label terminator. The old overlapping alternatives hang on this input.
+        source = ('[before](before.md)\n\\[\n' + r'\frac{x}{y}' * 80 +
+                  '\n\\]\n[![after](plot.svg)](after.md)\n')
+        code = ('import sys; from linkparse import parse_links; '
+                'assert parse_links(sys.stdin.read(), ".md", repository=True) == '
+                '["before.md", "after.md", "plot.svg"]')
+        result = subprocess.run([sys.executable, '-c', code], input=source,
+                                text=True, capture_output=True,
+                                cwd=Path(__file__).resolve().parents[1], timeout=5)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
     def test_code_comments_and_fenced_headings_are_not_links(self):
         source = ('`[example](missing.md)`\n```md\n[bad](bad.md)\n# Not a heading\n```\n'
                   '<!-- [bad](gone.md) -->\n    [code](absent.md)\n')
